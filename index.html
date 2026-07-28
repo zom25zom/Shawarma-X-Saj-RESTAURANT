@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shawarma X Saj RESTAURANT - Shawarma X Saj RESTAURANT</title>
+    <link rel="icon" type="image/x-icon" href="images/logo.ico">
+    <meta property="og:image" content="https://Shawarma X Saj RESTAURANT.netlify.app/images/logo.ico">
+    <meta name="twitter:image" content="https://Shawarma X Saj RESTAURANT.netlify.app/images/logo.ico">
+    <meta property="og:image:type" content="image/ico">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="600">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- الشريط العلوي -->
+    <header class="header sticky-header">
+        <div class="container">
+            <div class="header-flex">
+                <!-- أزرار التواصل الاجتماعي -->
+                <div class="header-social">
+                    <div class="lang-dropdown-container">
+                        <button id="langToggle" class="lang-btn" title="Change Language">
+                            <svg class="lang-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z">
+                                </path>
+                                <path d="M2 12h20"></path>
+                                <path
+                                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                                </path>
+                            </svg>
+                            <span class="lang-text">EN</span>
+                        </button>
+                        <div id="langDropdown" class="lang-dropdown-menu">
+                            <button class="lang-option" data-lang="ar">العربية</button>
+                            <button class="lang-option" data-lang="en">English</button>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/962796124222" target="_blank" class="social-icon whatsapp" title="واتساب">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://web.facebook.com/profile.php?id=61550677412936" target="_blank"
+                        class="social-icon facebook" title="فيسبوك">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
+
+                <!-- شعار المطعم في المنتصف -->
+                <div class="header-title">
+                    <div class="logo-container">
+                        <img src="images/logo.ico" alt="شعار المطعم" class="logo-img" id="headerLogo">
+                        <div class="logo-fallback" id="headerLogoFallback">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path>
+                                <path d="M7 2v20"></path>
+                                <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- زر اطلب الآن -->
+                <div class="header-order">
+                    <a href="tel:0796124222" class="order-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="phone-icon">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                            </path>
+                        </svg>
+                        <div class="order-text">
+                            <span class="order-main">اطلب الآن</span>
+                            <span class="order-phone">0796124222</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="main">
+        <div class="container">
+            <!-- عنوان أصناف Shawarma X Saj RESTAURANT -->
+            <div style="text-align:center; margin-bottom: 1.2rem; margin-top: 2.2rem;">
+                <h2 style="
+                    font-family: 'Noto Kufi Arabic', Arial, sans-serif;
+                    font-size: 1.45rem;
+                    font-weight: bold;
+                    color: var(--color-accent);
+                    letter-spacing: 1px;
+                    margin: 0;
+                ">
+                    <span style="font-family: 'Noto Kufi Arabic', Arial, sans-serif;">أصناف</span>
+                    <span style="font-family: Arial, sans-serif;">Shawarma X Saj RESTAURANT</span>
+                </h2>
+                <!-- سهم كامل للأسفل -->
+                <div style="margin-top: 0.3rem; display: flex; justify-content: center;">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g>
+                            <line x1="18" y1="10" x2="18" y2="26" stroke="var(--color-accent)" stroke-width="3"
+                                stroke-linecap="round" />
+                            <polyline points="12,20 18,26 24,20" fill="none" stroke="var(--color-accent)"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- فلتر الفئات -->
+            <div class="category-filter" id="categoryFilter">
+                <!-- سيتم إضافة الأزرار بواسطة JavaScript -->
+            </div>
+
+
+            <!-- عنوان الفئة النشطة -->
+            <div class="active-category-info" id="activeCategoryInfo">
+                <h2 id="activeCategoryName">الكل</h2>
+                <p id="activeCategoryCount"></p>
+            </div>
+
+            <!-- شاشة التحميل -->
+            <div class="loading-spinner" id="loadingSpinner">
+                <div class="spinner-container">
+                    <div class="spinner-outer"></div>
+                    <div class="spinner-inner"></div>
+                </div>
+            </div>
+
+            <!-- شبكة الأصناف -->
+            <div class="menu-grid" id="menuGrid">
+                <!-- سيتم إضافة البطاقات بواسطة JavaScript -->
+            </div>
+
+            <!-- رسالة عدم وجود أصناف -->
+            <div class="no-items" id="noItems" style="display: none;">
+                <div class="no-items-icon">🍽️</div>
+                <h3>لا توجد أصناف في هذه الفئة</h3>
+                <p>اختر فئة أخرى للاطلاع على الأصناف المتوفرة</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- الشريط السفلي -->
+    <footer class="footer">
+        <div class="container footer-flex">
+            <div class="footer-logo-container">
+                <img src="images/logo.ico" alt="شعار المطعم" class="footer-logo-img" id="footerLogo"
+                    style="width: 60px; height: 60px; object-fit: contain;">
+                <div class="logo-fallback" id="footerLogoFallback" style="display:none;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path>
+                        <path d="M7 2v20"></path>
+                        <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3z"></path>
+                    </svg>
+                </div>
+            </div>
+            <div class="footer-title">
+                <h3 class="footer-name-ar">Shawarma X Saj RESTAURANT </h3>
+                <p class="footer-thanks-ar">طعم ليس له مثيل </p>
+                <div class="footer-contact-info"
+                    style="margin-top: 1rem; color: var(--color-border); font-size: 0.9rem; line-height: 1.6;">
+                    <p><i class="fas fa-phone-alt" style="color: var(--color-accent); margin-left: 5px;"></i> 0796124222
+                    </p>
+                    <p><i class="fas fa-map-marker-alt" style="color: var(--color-accent); margin-left: 5px;"></i> حنينا
+                        - قرب دوار الجرة
+                        شارع حكيم بن حزام (شارع سلطة المياة)</p>
+                    <p><a href="https://maps.app.goo.gl/E4dyubmcX8jKtQQ8A" target="_blank"
+                            style="color: var(--color-accent); text-decoration: none;"><i class="fas fa-map-marked-alt"
+                                style="margin-left: 5px;"></i> موقعنا على الخريطة (Google Maps)</a></p>
+                </div>
+            </div>
+            <div class="footer-social">
+                <a href="https://web.facebook.com/profile.php?id=61550677412936" target="_blank"
+                    class="social-icon facebook" title="فيسبوك">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://wa.me/962796124222" target="_blank" class="social-icon whatsapp" title="واتساب">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- نافذة عرض الصورة -->
+    <div class="image-modal" id="imageModal">
+        <div class="modal-backdrop" id="modalBackdrop"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="modal-image-container">
+                <img id="modalImage" src="" alt="" class="modal-image">
+                <div class="modal-image-title">
+                    <h3 id="modalImageTitle"></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- زر العودة لأعلى الصفحة -->
+    <button id="scrollToTopBtn" title="العودة للأعلى"
+        style="position: fixed; left: 2rem; bottom: 10rem; z-index: 9999; display: none; background: var(--bg-element); color: var(--color-accent); border: none; border-radius: 50%; width: 48px; height: 48px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); font-size: 1.5rem; cursor: pointer; align-items: center; justify-content: center; border: 1px solid var(--color-accent);">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <script>
+        // زر العودة للأعلى
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.style.display = 'flex';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+        scrollToTopBtn.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
