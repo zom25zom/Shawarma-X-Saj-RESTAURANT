@@ -770,7 +770,8 @@ function createMenuItemCard(item) {
 
     card.innerHTML = `
         <div class="card-image-container">
-            ${item.image ? `<img src="${imageUrl}" alt="${mainTitle}" class="card-image"
+            ${item.image ? `<img data-src="${imageUrl}" alt="${mainTitle}" class="card-image lazy-image"
+                 loading="lazy" decoding="async"
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">` : ''}
             <div class="no-image" style="display:${item.image ? 'none' : 'flex'};align-items:center;justify-content:center;height:12rem;width:100%;background:var(--bg-element);color:var(--color-accent);font-weight:bold;font-size:1rem;border-radius:0.75rem 0.75rem 0 0;">
                 <span>${noImageText}</span>
@@ -825,6 +826,60 @@ function createMenuItemCard(item) {
     return card;
 }
 
+// ==========================================================
+// نظام التحميل الكسول للصور (Lazy Loading)
+// الفكرة: الصور لا تُحمَّل فعلياً (لا يوجد طلب شبكة) إلا عندما
+// تقترب البطاقة من الظهور ضمن نطاق رؤية المستخدم (viewport).
+// هذا يقلل استهلاك الباندويث بشكل كبير، لأن الصور التي لم
+// يصل إليها المستخدم بالتمرير لن تُحمَّل إطلاقاً.
+// ==========================================================
+let lazyImageObserver = null;
+
+function getLazyImageObserver() {
+    // ننشئ الـ observer مرة واحدة فقط ونعيد استخدامه لكل الصور
+    if (lazyImageObserver) return lazyImageObserver;
+
+    // دعم المتصفحات القديمة جداً التي لا تدعم IntersectionObserver:
+    // في هذه الحالة نحمّل الصور مباشرة كخطة بديلة (fallback)
+    if (!('IntersectionObserver' in window)) {
+        lazyImageObserver = {
+            observe: (img) => {
+                img.src = img.dataset.src;
+                img.classList.remove('lazy-image');
+            }
+        };
+        return lazyImageObserver;
+    }
+
+    lazyImageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                // نستبدل data-src بـ src الفعلي، وهذا ما يشغّل طلب التحميل
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+                img.classList.remove('lazy-image');
+                img.classList.add('lazy-loaded');
+                observer.unobserve(img); // نوقف مراقبة هذه الصورة بعد تحميلها
+            }
+        });
+    }, {
+        // نبدأ تحميل الصورة قبل 200px من وصولها فعلياً للشاشة
+        // لضمان ظهورها بسلاسة دون انتظار ملحوظ من المستخدم
+        rootMargin: '200px 0px',
+        threshold: 0.01
+    });
+
+    return lazyImageObserver;
+}
+
+// تفعيل المراقبة على كل الصور الكسولة الموجودة حالياً في menuGrid
+function observeLazyImages() {
+    const observer = getLazyImageObserver();
+    const lazyImages = menuGrid.querySelectorAll('img.lazy-image[data-src]');
+    lazyImages.forEach(img => observer.observe(img));
+}
+
 // عرض الأصناف
 function displayMenuItems(items) {
     menuGrid.innerHTML = '';
@@ -850,6 +905,11 @@ function displayMenuItems(items) {
         delay += delayIncrement; // زيادة التأخير لكل بطاقة بناءً على نوع الجهاز
         menuGrid.appendChild(card);
     });
+
+    // بعد إضافة كل البطاقات للـ DOM، نفعّل مراقبة الصور الكسولة
+    // (سواء كانت هذه كل أصناف "الكل" أو أصناف فئة معينة فقط —
+    // في الحالتين لن تُحمَّل الصور إلا عند التمرير إليها)
+    observeLazyImages();
 }
 
 // فتح مودال الصورة
